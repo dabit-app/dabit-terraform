@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Terraform init
-        run: terraform init
+        run: terraform -chdir=./src/ init
 
       - name: Terraform apply for prod.tfvars
         run: terraform -chdir=./src/ apply -var-file=../deployments/prod.tfvars -auto-approve
