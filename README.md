@@ -11,6 +11,26 @@ terraform -chdir=./src/ apply -var-file=../deployments/[insert environment].tfva
 
 ## Variables
 
+### Connect to k8s
+
+There's 2 way to connect to kubernetes.
+ 1. Using a kubeconfig file
+ 2. Supplying credentials
+
+In local for development purpose, you would typically use a kubemap. Set the config context through an environment variable `TF_VAR_k8s_config_context` and all should works just fine.
+
+| name | default |
+|------|---------|
+| [k8s_config_path](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs#config_path) | ~/.kube/config |
+| [k8s_config_context](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs#config_context) | null |
+|||
+| [k8s_host](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs#host) | null |
+| [k8s_client_certificate](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs#client_certificate) | null |
+| [k8s_client_key](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs#client_key) | null |
+| [k8s_cluster_ca_certificate](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs#cluster_ca_certificate) | null |
+
+### Deployments options
+
 | name | description | default |
 |------|-------------|---------|
 | host | hostname for the ingress | localhost |
