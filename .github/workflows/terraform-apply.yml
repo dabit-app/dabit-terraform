@@ -16,7 +16,7 @@ jobs:
       - name: Terraform apply for prod.tfvars
         run: terraform -chdir=./src/ apply -var-file=../deployments/prod.tfvars -auto-approve
         env:
-          TF_VAR_k8s_host=${{ secrets.K8S_HOST }}
-          TF_VAR_k8s_client_certificate=${{ secrets.K8S_CLIENT_CERTIFICATE }}
-          TF_VAR_k8s_client_key=${{ secrets.K8S_CLIENT_KEY }}
-          TF_VAR_k8s_cluster_ca_certificate=${{ secrets.K8S_CLUSTER_CA_CERTIFICATE}}
+          TF_VAR_k8s_host: ${{ secrets.K8S_HOST }}
+          TF_VAR_k8s_client_certificate: ${{ secrets.K8S_CLIENT_CERTIFICATE }}
+          TF_VAR_k8s_client_key: ${{ secrets.K8S_CLIENT_KEY }}
+          TF_VAR_k8s_cluster_ca_certificate: ${{ secrets.K8S_CLUSTER_CA_CERTIFICATE}}
