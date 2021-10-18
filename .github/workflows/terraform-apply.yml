@@ -7,7 +7,10 @@ jobs:
   apply:
     runs-on: ubuntu-latest
     steps:
-      - name: terraform apply for prod.tfvars
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Terraform apply for prod.tfvars
         run: >
           TF_VAR_k8s_host=${{ secrets.K8S_HOST }}
           TF_VAR_k8s_client_certificate=${{ secrets.K8S_CLIENT_CERTIFICATE }}
